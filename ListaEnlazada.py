@@ -22,6 +22,7 @@ class Lista:
             while actual.siguiente:
                 actual = actual.siguiente
             actual.siguiente = nuevo_nodo
+
     def Mostrar(self):
         a = self.cabeza
         while a:
@@ -64,6 +65,21 @@ class Lista:
                     actual.dato, actual.siguiente.dato = actual.siguiente.dato, actual.dato
                     bandera = True
                 actual = actual.siguiente
+
+    def Ordenamiento_por_seleccion(self):
+        a = self.cabeza
+        while a:
+            ord = a
+            siguiente = a.siguiente
+            while siguiente:
+                if siguiente.dato < ord.dato:
+                    ord = siguiente
+                siguiente = siguiente.siguiente
+            temp = a.dato
+            a.dato = ord.dato
+            ord.dato = temp
+            a = a.siguiente
+        
                 
 
 a = Lista()
@@ -71,7 +87,12 @@ a.ListarF(8)
 a.ListarF(3)
 a.ListarF(4)
 a.ListarF(11)
+a.ListarP(10)
+a.ListarP(45)
+a.ListarP(8)
+a.ListarP(76)
 a.Mostrar()
-a.OrdB()
+# a.OrdB()
+a.Ordenamiento_por_seleccion()
 a.Mostrar()
 
